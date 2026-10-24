@@ -36,10 +36,7 @@ export function Hero() {
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-100 font-sans leading-[1.15]">
           {hero.headline}
         </h1>
-        <p className="text-base sm:text-lg text-zinc-400 leading-relaxed font-sans">
-          {personal.name},{" "}
-          <span className="text-zinc-200">{personal.roleTitle}</span> {hero.specializedIn}{" "}
-          <span className="text-zinc-300">{personal.specialization}</span>.{" "}
+        <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
           {personal.shortBio}
         </p>
       </div>
