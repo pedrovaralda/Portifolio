@@ -1,11 +1,15 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { ArrowUp, Terminal } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const { personal, socials } = portfolioData;
+  const { content } = useLanguage();
+  const { footer, data } = content;
+  const { personal, socials } = data;
 
   return (
     <footer className="border-t border-zinc-900 py-10 mt-10">
@@ -13,7 +17,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Terminal className="w-3.5 h-3.5 text-zinc-600" />
           <span>
-            © {currentYear} {personal.name}. Built with Next.js, Tailwind CSS &amp; TypeScript.
+            © {currentYear} {personal.name}. {footer.builtWith}
           </span>
         </div>
 
@@ -37,9 +41,9 @@ export function Footer() {
           <Link
             href="#"
             className="inline-flex items-center gap-1 hover:text-zinc-300 transition-colors pl-2 border-l border-zinc-850"
-            aria-label="Back to top"
+            aria-label={footer.backToTop}
           >
-            <span>Top</span>
+            <span>{footer.backToTop}</span>
             <ArrowUp className="w-3 h-3" />
           </Link>
         </div>

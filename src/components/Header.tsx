@@ -3,12 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Github, Linkedin, FileText, Menu, X, ArrowUpRight } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
+import { LanguageToggle } from "./LanguageToggle";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { personal, socials } = portfolioData;
+  const { content } = useLanguage();
+  const { nav, data } = content;
+  const { personal, socials } = data;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,10 +22,10 @@ export function Header() {
   }, []);
 
   const navLinks = [
-    { label: "Projects", href: "#projects" },
-    { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
+    { label: nav.projects, href: "#projects" },
+    { label: nav.experience, href: "#experience" },
+    { label: nav.skills, href: "#skills" },
+    { label: nav.contact, href: "#contact" },
   ];
 
   return (
@@ -53,7 +56,7 @@ export function Header() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
               </span>
-              <span>Available</span>
+              <span>{nav.availableBadge}</span>
             </span>
           )}
         </Link>
@@ -71,8 +74,11 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Action Buttons */}
+        {/* Action Buttons: Language Toggle, Socials & Resume */}
         <div className="hidden sm:flex items-center gap-2">
+          {/* Language Toggle Button */}
+          <LanguageToggle />
+
           <a
             href={socials.github}
             target="_blank"
@@ -98,13 +104,14 @@ export function Header() {
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-zinc-200 transition-all duration-150"
           >
             <FileText className="w-3.5 h-3.5 text-zinc-400" />
-            <span>Resume</span>
+            <span>{nav.resume}</span>
             <ArrowUpRight className="w-3 h-3 text-zinc-500" />
           </a>
         </div>
 
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
+          <LanguageToggle variant="compact" />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
@@ -117,7 +124,12 @@ export function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="sm:hidden px-4 pt-3 pb-5 bg-zinc-950 border-b border-zinc-850 mt-2 space-y-3">
+        <div className="sm:hidden px-4 pt-3 pb-5 bg-zinc-950 border-b border-zinc-850 mt-2 space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-900">
+            <span className="text-xs font-mono text-zinc-500">Idioma / Language:</span>
+            <LanguageToggle />
+          </div>
+
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <Link
@@ -158,7 +170,7 @@ export function Header() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Resume (PDF)</span>
+              <span>{nav.resume} (PDF)</span>
             </a>
           </div>
         </div>

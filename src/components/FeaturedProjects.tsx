@@ -1,9 +1,13 @@
+"use client";
+
 import React from "react";
 import { Github, ExternalLink, Sparkles, FolderGit2 } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function FeaturedProjects() {
-  const { projects } = portfolioData;
+  const { content } = useLanguage();
+  const { projectsSection, data } = content;
+  const { projects } = data;
 
   return (
     <section id="projects" className="py-16 sm:py-20 border-b border-zinc-850">
@@ -12,14 +16,14 @@ export function FeaturedProjects() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <FolderGit2 className="w-3.5 h-3.5" />
-            <span>Featured Work</span>
+            <span>{projectsSection.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            Selected Engineering Projects
+            {projectsSection.title}
           </h2>
         </div>
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
-          Architected for high throughput, type safety, and production resilience.
+          {projectsSection.subtitle}
         </p>
       </div>
 
@@ -33,14 +37,14 @@ export function FeaturedProjects() {
             <div>
               {/* Category and Featured Pill */}
               <div className="flex items-center justify-between gap-2 mb-3">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2 py-0.5 rounded bg-zinc-800/80 border border-zinc-700/60">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2 py-0.5 rounded bg-zinc-800/80 border border-zinc-750">
                   {project.category}
                 </span>
 
                 {project.featured && (
                   <span className="inline-flex items-center gap-1 text-[11px] font-mono text-amber-400/90">
                     <Sparkles className="w-3 h-3" />
-                    <span>Featured</span>
+                    <span>{projectsSection.featuredBadge}</span>
                   </span>
                 )}
               </div>
@@ -90,7 +94,7 @@ export function FeaturedProjects() {
                   aria-label={`View ${project.title} GitHub repository`}
                 >
                   <Github className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-200" />
-                  <span>Source Code</span>
+                  <span>{projectsSection.sourceCode}</span>
                 </a>
 
                 {project.liveUrl && (
@@ -102,7 +106,7 @@ export function FeaturedProjects() {
                     aria-label={`View live demo of ${project.title}`}
                   >
                     <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>Live Demo</span>
+                    <span>{projectsSection.liveDemo}</span>
                   </a>
                 )}
               </div>

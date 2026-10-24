@@ -1,10 +1,14 @@
+"use client";
+
 import React from "react";
-import { Github, Linkedin, ArrowDown, MapPin, Clock, ShieldCheck } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { Github, Linkedin, MapPin, Clock } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
 
 export function Hero() {
-  const { personal, socials, fastFacts } = portfolioData;
+  const { content } = useLanguage();
+  const { hero, data } = content;
+  const { personal, socials, fastFacts } = data;
 
   return (
     <section className="pt-10 pb-16 sm:pt-16 sm:pb-20 border-b border-zinc-850">
@@ -30,11 +34,11 @@ export function Hero() {
       {/* Main Headline & Intro */}
       <div className="space-y-4 max-w-3xl">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-100 font-sans leading-[1.15]">
-          Engineering scalable web systems with high performance and clean architecture.
+          {hero.headline}
         </h1>
         <p className="text-base sm:text-lg text-zinc-400 leading-relaxed font-sans">
-          I am <strong className="text-zinc-200 font-semibold">{personal.name}</strong>, a{" "}
-          <span className="text-zinc-200">{personal.roleTitle}</span> specialized in{" "}
+          {personal.name},{" "}
+          <span className="text-zinc-200">{personal.roleTitle}</span> {hero.specializedIn}{" "}
           <span className="text-zinc-300">{personal.specialization}</span>.{" "}
           {personal.shortBio}
         </p>
@@ -50,8 +54,8 @@ export function Hero() {
           className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
           <Github className="w-4 h-4 text-zinc-300" />
-          <span>GitHub</span>
-          <span className="text-xs font-mono text-zinc-500">@pedro-dev</span>
+          <span>{hero.githubLabel}</span>
+          <span className="text-xs font-mono text-zinc-500">@pedrovaralda</span>
         </a>
 
         {/* LinkedIn Button CTA */}
@@ -62,8 +66,8 @@ export function Hero() {
           className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
         >
           <Linkedin className="w-4 h-4 text-[#0a66c2]" />
-          <span>LinkedIn</span>
-          <span className="text-xs font-mono text-zinc-500">Connect</span>
+          <span>{hero.linkedinLabel}</span>
+          <span className="text-xs font-mono text-zinc-500">{hero.connectLabel}</span>
         </a>
 
         {/* Interactive Copy Email CTA */}

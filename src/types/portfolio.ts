@@ -1,3 +1,5 @@
+export type Locale = "pt" | "en";
+
 export interface SocialLink {
   label: string;
   href: string;
@@ -20,7 +22,7 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   featured: boolean;
-  category: "Full-Stack" | "Backend / Distributed" | "Frontend Architecture" | "DevOps & Cloud";
+  category: string;
 }
 
 export interface ExperienceItem {
@@ -30,7 +32,7 @@ export interface ExperienceItem {
   companyUrl?: string;
   period: string;
   location: string;
-  workType: "Remote" | "Hybrid" | "On-site";
+  workType: string;
   description: string[];
   technologies: string[];
 }
@@ -51,7 +53,7 @@ export interface PortfolioData {
     location: string;
     timeZone: string;
     availability: {
-      status: "Available for new roles" | "Open to opportunities" | "Consulting";
+      status: string;
       isOpen: boolean;
     };
     email: string;
@@ -67,4 +69,80 @@ export interface PortfolioData {
   projects: Project[];
   experience: ExperienceItem[];
   skills: SkillItem[];
+}
+
+export interface NavTranslations {
+  projects: string;
+  experience: string;
+  skills: string;
+  contact: string;
+  resume: string;
+  availableBadge: string;
+}
+
+export interface HeroTranslations {
+  headline: string;
+  introRolePrefix: string;
+  specializedIn: string;
+  githubLabel: string;
+  linkedinLabel: string;
+  connectLabel: string;
+  getInTouch: string;
+  copyEmail: string;
+  copied: string;
+}
+
+export interface ProjectsTranslations {
+  badge: string;
+  title: string;
+  subtitle: string;
+  featuredBadge: string;
+  sourceCode: string;
+  liveDemo: string;
+}
+
+export interface ExperienceTranslations {
+  badge: string;
+  title: string;
+  subtitle: string;
+  stackLabel: string;
+}
+
+export interface SkillsTranslations {
+  badge: string;
+  title: string;
+  subtitle: string;
+  categories: {
+    Frontend: string;
+    Backend: string;
+    "Cloud & DevOps": string;
+    "Databases & Tools": string;
+  };
+}
+
+export interface ContactTranslations {
+  badge: string;
+  title: string;
+  description: string;
+  timeZoneLabel: string;
+  typicalResponse: string;
+  sendEmail: string;
+  copyPill: string;
+  copied: string;
+}
+
+export interface FooterTranslations {
+  builtWith: string;
+  backToTop: string;
+}
+
+export interface PortfolioContent {
+  nav: NavTranslations;
+  hero: HeroTranslations;
+  projectsSection: ProjectsTranslations;
+  experienceSection: ExperienceTranslations;
+  skillsSection: SkillsTranslations;
+  contactSection: ContactTranslations;
+  footer: FooterTranslations;
+  data: PortfolioData;
 }

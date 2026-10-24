@@ -1,21 +1,15 @@
+"use client";
+
 import React from "react";
 import { Cpu, Layers, Server, Cloud, Database } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 import { TechIcons } from "./icons/TechIcons";
 import { SkillItem } from "@/types/portfolio";
 
-const categoryMeta: Record<
-  SkillItem["category"],
-  { label: string; icon: React.ComponentType<{ className?: string }> }
-> = {
-  Frontend: { label: "Frontend & UI Architecture", icon: Layers },
-  Backend: { label: "Backend & Distributed Systems", icon: Server },
-  "Cloud & DevOps": { label: "Cloud, Infrastructure & CI/CD", icon: Cloud },
-  "Databases & Tools": { label: "Databases, Tooling & Testing", icon: Database },
-};
-
 export function Skills() {
-  const { skills } = portfolioData;
+  const { content } = useLanguage();
+  const { skillsSection, data } = content;
+  const { skills } = data;
 
   const categories: SkillItem["category"][] = [
     "Frontend",
@@ -24,6 +18,16 @@ export function Skills() {
     "Databases & Tools",
   ];
 
+  const categoryIcons: Record<
+    SkillItem["category"],
+    React.ComponentType<{ className?: string }>
+  > = {
+    Frontend: Layers,
+    Backend: Server,
+    "Cloud & DevOps": Cloud,
+    "Databases & Tools": Database,
+  };
+
   return (
     <section id="skills" className="py-16 sm:py-20 border-b border-zinc-850">
       {/* Section Header */}
@@ -31,14 +35,14 @@ export function Skills() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <Cpu className="w-3.5 h-3.5" />
-            <span>Technical Capabilities</span>
+            <span>{skillsSection.badge}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            Tech Stack & Expertise
+            {skillsSection.title}
           </h2>
         </div>
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
-          Modern production-proven technologies, libraries, and infrastructure tools.
+          {skillsSection.subtitle}
         </p>
       </div>
 
@@ -46,7 +50,8 @@ export function Skills() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {categories.map((category) => {
           const groupSkills = skills.filter((s) => s.category === category);
-          const MetaIcon = categoryMeta[category].icon;
+          const MetaIcon = categoryIcons[category];
+          const categoryTitle = skillsSection.categories[category];
 
           return (
             <div
@@ -57,7 +62,7 @@ export function Skills() {
               <div className="flex items-center gap-2.5 pb-4 mb-4 border-b border-zinc-850/80">
                 <MetaIcon className="w-4 h-4 text-zinc-400" />
                 <h3 className="text-sm font-mono font-semibold tracking-tight text-zinc-200">
-                  {categoryMeta[category].label}
+                  {categoryTitle}
                 </h3>
               </div>
 
