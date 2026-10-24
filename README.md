@@ -8,6 +8,7 @@ Optimized for **instant zero-config deployment on [Vercel](https://vercel.com)**
 
 ## ⚡ Design Aesthetic & Engineering Philosophy
 
+- **Bilingual (PT-BR / EN-US)**: Instant client-side language toggle button with complete translations across the whole portfolio, browser language auto-detection, and `localStorage` persistence.
 - **Editorial & Content-Focused**: Avoids AI design tropes (no glossy gradients, no 3D glassmorphism, no neon glows).
 - **High-Contrast Typography**: System sans-serif paired with monospace fonts for metrics, dates, and technology tags.
 - **Micro-Interactions**: Crisp 150ms hover states, instant email copy with visual feedback, and live status ping.
