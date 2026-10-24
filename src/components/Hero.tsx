@@ -1,9 +1,30 @@
 "use client";
 
 import React from "react";
-import { Github, Linkedin, MapPin, Clock } from "lucide-react";
+import { Github, Linkedin, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
+
+function renderBioWithLinks(text: string) {
+  const parts = text.split(/(@GrupoRiHappy)/g);
+  return parts.map((part, index) => {
+    if (part === "@GrupoRiHappy") {
+      return (
+        <a
+          key={index}
+          href="https://www.linkedin.com/company/grupo-ri-happy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-zinc-100 hover:text-white underline underline-offset-4 decoration-zinc-600 hover:decoration-zinc-200 transition-colors inline-flex items-center gap-0.5 group/rihappy"
+        >
+          <span>@GrupoRiHappy</span>
+          <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover/rihappy:text-zinc-200 inline" />
+        </a>
+      );
+    }
+    return part;
+  });
+}
 
 export function Hero() {
   const { content } = useLanguage();
@@ -37,7 +58,7 @@ export function Hero() {
           {hero.headline}
         </h1>
         <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
-          {personal.shortBio}
+          {renderBioWithLinks(personal.shortBio)}
         </p>
       </div>
 

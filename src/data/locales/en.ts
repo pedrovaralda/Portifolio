@@ -66,7 +66,7 @@ export const enContent: PortfolioContent = {
       roleTitle: "Software Engineer",
       specialization: "Scalable Architecture, Automation & AI",
       shortBio:
-        "Software Engineer with 5+ years of experience focused on scalable architecture, automation, and artificial intelligence. At Grupo Ri Happy, I pioneered AI-assisted CI/CD pipelines to optimize the development lifecycle. Specialized in the Node.js, PostgreSQL, React, and TypeScript ecosystems, with technical leadership across high-impact projects such as the Divertudo platform and Check-in Digital.",
+        "Software Engineer with 5+ years of experience focused on scalable architecture, automation, and artificial intelligence. At Grupo Ri Happy, I pioneered AI-assisted CI/CD pipelines to optimize the development lifecycle. Specialized in the Node.js, PostgreSQL, React, and TypeScript ecosystems, with technical leadership across high-impact projects such as the Divertudo platform and Check-in Digital at @GrupoRiHappy.",
       location: "São Paulo, Brazil",
       timeZone: "UTC-3 (Available for US, EU & LATAM overlapping hours)",
       availability: {

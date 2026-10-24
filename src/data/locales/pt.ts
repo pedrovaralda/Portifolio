@@ -66,7 +66,7 @@ export const ptContent: PortfolioContent = {
       roleTitle: "Engenheiro de Software",
       specialization: "Arquitetura Escalável, Automação & IA",
       shortBio:
-        "Engenheiro de Software com +5 anos de experiência focado em arquitetura escalável, automação e inteligência artificial. No Grupo Ri Happy, fui um dos pioneiros na implementação de esteiras de CI/CD assistidas por IA para otimizar o ciclo de desenvolvimento. Especialista no ecossistema Node.js, PostgreSQL, React e TypeScript, com liderança técnica em projetos de alto impacto como a plataforma Divertudo e o Check-in Digital.",
+        "Engenheiro de Software com +5 anos de experiência focado em arquitetura escalável, automação e inteligência artificial. No Grupo Ri Happy, fui um dos pioneiros na implementação de esteiras de CI/CD assistidas por IA para otimizar o ciclo de desenvolvimento. Especialista no ecossistema Node.js, PostgreSQL, React e TypeScript, com liderança técnica em projetos de alto impacto como a plataforma Divertudo e o Check-in Digital no @GrupoRiHappy.",
       location: "São Paulo, Brasil",
       timeZone: "UTC-3 (Disponível para fuso horários dos EUA, Europa e América Latina)",
       availability: {
