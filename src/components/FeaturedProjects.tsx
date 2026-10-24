@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Github, ExternalLink, Sparkles, FolderGit2 } from "lucide-react";
+import { Sparkles, FolderGit2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function FeaturedProjects() {
@@ -71,9 +71,9 @@ export function FeaturedProjects() {
               )}
             </div>
 
-            <div className="mt-6 pt-5 border-t border-zinc-850/80">
+            <div className="mt-6 pt-4 border-t border-zinc-850/80">
               {/* Tech Stack Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-5">
+              <div className="flex flex-wrap gap-1.5">
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
@@ -82,33 +82,6 @@ export function FeaturedProjects() {
                     {tech}
                   </span>
                 ))}
-              </div>
-
-              {/* Action Links */}
-              <div className="flex items-center gap-3">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 hover:border-zinc-700 text-xs font-mono font-medium text-zinc-200 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
-                  aria-label={`View ${project.title} GitHub repository`}
-                >
-                  <Github className="w-3.5 h-3.5 text-zinc-400 group-hover:text-zinc-200" />
-                  <span>{projectsSection.sourceCode}</span>
-                </a>
-
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-700 text-xs font-mono font-medium text-zinc-300 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400"
-                    aria-label={`View live demo of ${project.title}`}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{projectsSection.liveDemo}</span>
-                  </a>
-                )}
               </div>
             </div>
           </article>
