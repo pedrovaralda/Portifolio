@@ -213,7 +213,7 @@ export const ptContent: PortfolioContent = {
       { name: "Kubernetes", iconKey: "kubernetes", category: "Cloud & DevOps" },
       { name: "AWS", iconKey: "aws", category: "Cloud & DevOps" },
       { name: "Linux / Bash", iconKey: "linux", category: "Cloud & DevOps" },
-      { name: "Terraform", iconKey: "terraform", category: "Cloud & DevOps" },
+      { name: "GCP (Google Cloud)", iconKey: "gcp", category: "Cloud & DevOps" },
       { name: "Redis", iconKey: "redis", category: "Databases & Tools" },
       { name: "Git & GitHub", iconKey: "git", category: "Databases & Tools" },
       { name: "Testes Unitários", iconKey: "test", category: "Databases & Tools" },
