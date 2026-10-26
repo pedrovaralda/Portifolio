@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUp, Terminal } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { ScrambleText } from "./ScrambleText";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,7 +18,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Terminal className="w-3.5 h-3.5 text-zinc-600" />
           <span>
-            © {currentYear} {personal.name}. {footer.builtWith}
+            © {currentYear} {personal.name}. <ScrambleText duration={250}>{footer.builtWith}</ScrambleText>
           </span>
         </div>
 
@@ -43,7 +44,9 @@ export function Footer() {
             className="inline-flex items-center gap-1 hover:text-zinc-300 transition-colors pl-2 border-l border-zinc-850"
             aria-label={footer.backToTop}
           >
-            <span>{footer.backToTop}</span>
+            <span>
+              <ScrambleText duration={200}>{footer.backToTop}</ScrambleText>
+            </span>
             <ArrowUp className="w-3 h-3" />
           </Link>
         </div>

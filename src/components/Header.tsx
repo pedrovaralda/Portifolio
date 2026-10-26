@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github, Linkedin, FileText, Menu, X, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { LanguageToggle } from "./LanguageToggle";
+import { ScrambleText } from "./ScrambleText";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -47,7 +48,7 @@ export function Header() {
               {personal.name}
             </span>
             <span className="text-[11px] font-mono text-zinc-500">
-              {personal.roleTitle}
+              <ScrambleText duration={250}>{personal.roleTitle}</ScrambleText>
             </span>
           </div>
           {personal.availability.isOpen && (
@@ -56,7 +57,9 @@ export function Header() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
               </span>
-              <span>{nav.availableBadge}</span>
+              <span>
+                <ScrambleText duration={200}>{nav.availableBadge}</ScrambleText>
+              </span>
             </span>
           )}
         </Link>
@@ -69,7 +72,7 @@ export function Header() {
               href={link.href}
               className="px-3 py-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md transition-colors"
             >
-              {link.label}
+              <ScrambleText duration={200}>{link.label}</ScrambleText>
             </Link>
           ))}
         </nav>
@@ -104,7 +107,9 @@ export function Header() {
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-zinc-200 transition-all duration-150"
           >
             <FileText className="w-3.5 h-3.5 text-zinc-400" />
-            <span>{nav.resume}</span>
+            <span>
+              <ScrambleText duration={200}>{nav.resume}</ScrambleText>
+            </span>
             <ArrowUpRight className="w-3 h-3 text-zinc-500" />
           </a>
         </div>
@@ -138,7 +143,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 text-sm font-mono text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-md"
               >
-                {link.label}
+                <ScrambleText duration={200}>{link.label}</ScrambleText>
               </Link>
             ))}
           </nav>
@@ -170,7 +175,9 @@ export function Header() {
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>{nav.resume} (PDF)</span>
+              <span>
+                <ScrambleText duration={200}>{nav.resume}</ScrambleText> (PDF)
+              </span>
             </a>
           </div>
         </div>

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Copy, Check, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import { ScrambleText } from "./ScrambleText";
 
 interface CopyEmailButtonProps {
   email: string;
@@ -63,7 +64,9 @@ export function CopyEmailButton({
         ) : (
           <>
             <Copy className="w-3.5 h-3.5" />
-            <span className="font-mono">{content.contactSection.copyPill}</span>
+            <span className="font-mono">
+              <ScrambleText duration={200}>{content.contactSection.copyPill}</ScrambleText>
+            </span>
           </>
         )}
       </button>
@@ -116,9 +119,11 @@ export function CopyEmailButton({
       ) : (
         <>
           <Mail className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200 transition-colors" />
-          <span>{resolvedLabel}</span>
+          <span>
+            <ScrambleText duration={200}>{resolvedLabel}</ScrambleText>
+          </span>
           <span className="text-zinc-500 text-xs font-mono border-l border-zinc-800 pl-2">
-            {content.hero.copyEmail}
+            <ScrambleText duration={200}>{content.hero.copyEmail}</ScrambleText>
           </span>
         </>
       )}

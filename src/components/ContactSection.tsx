@@ -4,6 +4,7 @@ import React from "react";
 import { Mail, Github, Linkedin, ArrowUpRight, Clock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
+import { ScrambleText } from "./ScrambleText";
 
 export function ContactSection() {
   const { content } = useLanguage();
@@ -16,22 +17,22 @@ export function ContactSection() {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span>{contactSection.badge}</span>
+            <ScrambleText duration={250}>{contactSection.badge}</ScrambleText>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            {contactSection.title}
+            <ScrambleText duration={400} stagger={8}>{contactSection.title}</ScrambleText>
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
-            {contactSection.description}
+            <ScrambleText duration={400} stagger={3}>{contactSection.description}</ScrambleText>
           </p>
 
           <div className="mt-4 flex items-center gap-2 text-xs font-mono text-zinc-500">
             <Clock className="w-3.5 h-3.5 text-zinc-500" />
-            <span>{contactSection.timeZoneLabel}</span>
+            <ScrambleText duration={250}>{contactSection.timeZoneLabel}</ScrambleText>
             <span className="text-zinc-700">•</span>
-            <span>{contactSection.typicalResponse}</span>
+            <ScrambleText duration={250}>{contactSection.typicalResponse}</ScrambleText>
           </div>
 
           {/* Action CTAs */}

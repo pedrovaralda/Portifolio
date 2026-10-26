@@ -4,6 +4,7 @@ import React from "react";
 import { Github, Linkedin, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
+import { ScrambleText } from "./ScrambleText";
 
 function renderBioWithLinks(text: string) {
   const parts = text.split(/(@GrupoRiHappy)/g);
@@ -22,7 +23,7 @@ function renderBioWithLinks(text: string) {
         </a>
       );
     }
-    return part;
+    return <ScrambleText key={index} duration={350} stagger={6}>{part}</ScrambleText>;
   });
 }
 
@@ -40,12 +41,12 @@ export function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span>{personal.availability.status}</span>
+          <ScrambleText duration={300}>{personal.availability.status}</ScrambleText>
         </div>
 
         <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-zinc-500">
           <MapPin className="w-3.5 h-3.5 text-zinc-600" />
-          <span>{personal.location}</span>
+          <ScrambleText duration={250}>{personal.location}</ScrambleText>
           <span className="text-zinc-700">•</span>
           <Clock className="w-3.5 h-3.5 text-zinc-600" />
           <span>{personal.timeZone.split(" ")[0]}</span>
@@ -55,7 +56,7 @@ export function Hero() {
       {/* Main Headline & Intro */}
       <div className="space-y-4 max-w-3xl">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-100 font-sans leading-[1.15]">
-          {hero.headline}
+          <ScrambleText duration={500} stagger={8}>{hero.headline}</ScrambleText>
         </h1>
         <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
           {renderBioWithLinks(personal.shortBio)}
@@ -100,10 +101,10 @@ export function Hero() {
             className="p-3.5 rounded-lg border border-zinc-900 bg-zinc-950/40 hover:border-zinc-800/80 transition-colors"
           >
             <span className="block text-[11px] font-mono uppercase tracking-wider text-zinc-500">
-              {fact.label}
+              <ScrambleText duration={250}>{fact.label}</ScrambleText>
             </span>
             <span className="mt-1 block text-sm font-mono font-medium text-zinc-200">
-              {fact.value}
+              <ScrambleText duration={300} stagger={10}>{fact.value}</ScrambleText>
             </span>
           </div>
         ))}

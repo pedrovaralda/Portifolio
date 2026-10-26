@@ -5,6 +5,7 @@ import { Cpu, Layers, Server, Cloud, Database } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { TechIcons } from "./icons/TechIcons";
 import { SkillItem } from "@/types/portfolio";
+import { ScrambleText } from "./ScrambleText";
 
 export function Skills() {
   const { content } = useLanguage();
@@ -35,14 +36,14 @@ export function Skills() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <Cpu className="w-3.5 h-3.5" />
-            <span>{skillsSection.badge}</span>
+            <ScrambleText duration={250}>{skillsSection.badge}</ScrambleText>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            {skillsSection.title}
+            <ScrambleText duration={400} stagger={8}>{skillsSection.title}</ScrambleText>
           </h2>
         </div>
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
-          {skillsSection.subtitle}
+          <ScrambleText duration={350} stagger={5}>{skillsSection.subtitle}</ScrambleText>
         </p>
       </div>
 
@@ -62,7 +63,7 @@ export function Skills() {
               <div className="flex items-center gap-2.5 pb-4 mb-4 border-b border-zinc-850/80">
                 <MetaIcon className="w-4 h-4 text-zinc-400" />
                 <h3 className="text-sm font-mono font-semibold tracking-tight text-zinc-200">
-                  {categoryTitle}
+                  <ScrambleText duration={300} stagger={6}>{categoryTitle}</ScrambleText>
                 </h3>
               </div>
 
