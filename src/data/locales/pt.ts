@@ -7,7 +7,7 @@ export const ptContent: PortfolioContent = {
     skills: "Habilidades",
     contact: "Contato",
     resume: "Currículo",
-    availableBadge: "Disponível",
+    availableBadge: "Codando",
   },
   hero: {
     headline: "Engenharia de software focada em arquitetura escalável, automação e inteligência artificial.",
@@ -70,7 +70,7 @@ export const ptContent: PortfolioContent = {
       location: "São Paulo, Brasil",
       timeZone: "UTC-3 (Disponível para fuso horários dos EUA, Europa e América Latina)",
       availability: {
-        status: "Disponível para novos desafios",
+        status: "Criando coisas incríveis",
         isOpen: true,
       },
       email: "phvaralda@gmail.com",

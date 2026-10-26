@@ -7,7 +7,7 @@ export const enContent: PortfolioContent = {
     skills: "Skills",
     contact: "Contact",
     resume: "Resume",
-    availableBadge: "Available",
+    availableBadge: "Coding",
   },
   hero: {
     headline: "Software engineering focused on scalable architecture, automation, and artificial intelligence.",
@@ -70,7 +70,7 @@ export const enContent: PortfolioContent = {
       location: "São Paulo, Brazil",
       timeZone: "UTC-3 (Available for US, EU & LATAM overlapping hours)",
       availability: {
-        status: "Available for new roles",
+        status: "Creating amazing things",
         isOpen: true,
       },
       email: "phvaralda@gmail.com",
