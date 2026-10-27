@@ -17,22 +17,22 @@ export function ContactSection() {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <ScrambleText duration={250}>{contactSection.badge}</ScrambleText>
+            <ScrambleText>{contactSection.badge}</ScrambleText>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            <ScrambleText duration={400} stagger={8}>{contactSection.title}</ScrambleText>
+            <ScrambleText>{contactSection.title}</ScrambleText>
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
-            <ScrambleText duration={400} stagger={3}>{contactSection.description}</ScrambleText>
+            <ScrambleText>{contactSection.description}</ScrambleText>
           </p>
 
           <div className="mt-4 flex items-center gap-2 text-xs font-mono text-zinc-500">
             <Clock className="w-3.5 h-3.5 text-zinc-500" />
-            <ScrambleText duration={250}>{contactSection.timeZoneLabel}</ScrambleText>
+            <ScrambleText>{contactSection.timeZoneLabel}</ScrambleText>
             <span className="text-zinc-700">•</span>
-            <ScrambleText duration={250}>{contactSection.typicalResponse}</ScrambleText>
+            <ScrambleText>{contactSection.typicalResponse}</ScrambleText>
           </div>
 
           {/* Action CTAs */}
@@ -42,7 +42,9 @@ export function ContactSection() {
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-medium text-sm transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
             >
               <Mail className="w-4 h-4 text-zinc-950" />
-              <span>{contactSection.sendEmail}</span>
+              <span>
+                <ScrambleText>{contactSection.sendEmail}</ScrambleText>
+              </span>
             </a>
 
             <CopyEmailButton

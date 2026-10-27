@@ -18,7 +18,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Terminal className="w-3.5 h-3.5 text-zinc-600" />
           <span>
-            © {currentYear} {personal.name}. <ScrambleText duration={250}>{footer.builtWith}</ScrambleText>
+            © {currentYear} {personal.name}. <ScrambleText>{footer.builtWith}</ScrambleText>
           </span>
         </div>
 
@@ -45,7 +45,7 @@ export function Footer() {
             aria-label={footer.backToTop}
           >
             <span>
-              <ScrambleText duration={200}>{footer.backToTop}</ScrambleText>
+              <ScrambleText>{footer.backToTop}</ScrambleText>
             </span>
             <ArrowUp className="w-3 h-3" />
           </Link>

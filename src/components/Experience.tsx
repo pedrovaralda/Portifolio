@@ -17,14 +17,14 @@ export function Experience() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <Briefcase className="w-3.5 h-3.5" />
-            <ScrambleText duration={250}>{experienceSection.badge}</ScrambleText>
+            <ScrambleText>{experienceSection.badge}</ScrambleText>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            <ScrambleText duration={400} stagger={8}>{experienceSection.title}</ScrambleText>
+            <ScrambleText>{experienceSection.title}</ScrambleText>
           </h2>
         </div>
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
-          <ScrambleText duration={350} stagger={5}>{experienceSection.subtitle}</ScrambleText>
+          <ScrambleText>{experienceSection.subtitle}</ScrambleText>
         </p>
       </div>
 
@@ -39,16 +39,16 @@ export function Experience() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
               <div>
                 <h3 className="text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors">
-                  <ScrambleText duration={350} stagger={6}>{item.role}</ScrambleText>
+                  <ScrambleText>{item.role}</ScrambleText>
                 </h3>
                 <div className="text-sm font-mono text-zinc-300 flex items-center gap-2 mt-0.5">
                   <span className="font-medium text-zinc-200">{item.company}</span>
                   <span className="text-zinc-600">•</span>
                   <span className="inline-flex items-center gap-1 text-xs text-zinc-500">
                     <MapPin className="w-3 h-3" />
-                    <ScrambleText duration={250}>{item.location}</ScrambleText>
+                    <ScrambleText>{item.location}</ScrambleText>
                     {" ("}
-                    <ScrambleText duration={200}>{item.workType}</ScrambleText>
+                    <ScrambleText>{item.workType}</ScrambleText>
                     {")"}
                   </span>
                 </div>
@@ -56,7 +56,7 @@ export function Experience() {
 
               <div className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 sm:text-right mt-1 sm:mt-0">
                 <Calendar className="w-3.5 h-3.5 text-zinc-500" />
-                <ScrambleText duration={250}>{item.period}</ScrambleText>
+                <ScrambleText>{item.period}</ScrambleText>
               </div>
             </div>
 
@@ -65,7 +65,7 @@ export function Experience() {
               {item.description.map((bullet, idx) => (
                 <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
                   <span className="text-zinc-600 mt-1 select-none font-mono text-xs">▸</span>
-                  <ScrambleText duration={400} stagger={3}>{bullet}</ScrambleText>
+                  <ScrambleText>{bullet}</ScrambleText>
                 </li>
               ))}
             </ul>

@@ -48,7 +48,7 @@ export function Header() {
               {personal.name}
             </span>
             <span className="text-[11px] font-mono text-zinc-500">
-              <ScrambleText duration={250}>{personal.roleTitle}</ScrambleText>
+              <ScrambleText>{personal.roleTitle}</ScrambleText>
             </span>
           </div>
           {personal.availability.isOpen && (
@@ -58,7 +58,7 @@ export function Header() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
               </span>
               <span>
-                <ScrambleText duration={200}>{nav.availableBadge}</ScrambleText>
+                <ScrambleText>{nav.availableBadge}</ScrambleText>
               </span>
             </span>
           )}
@@ -72,7 +72,7 @@ export function Header() {
               href={link.href}
               className="px-3 py-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md transition-colors"
             >
-              <ScrambleText duration={200}>{link.label}</ScrambleText>
+              <ScrambleText>{link.label}</ScrambleText>
             </Link>
           ))}
         </nav>
@@ -108,7 +108,7 @@ export function Header() {
           >
             <FileText className="w-3.5 h-3.5 text-zinc-400" />
             <span>
-              <ScrambleText duration={200}>{nav.resume}</ScrambleText>
+              <ScrambleText>{nav.resume}</ScrambleText>
             </span>
             <ArrowUpRight className="w-3 h-3 text-zinc-500" />
           </a>
@@ -143,7 +143,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="px-3 py-2 text-sm font-mono text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-md"
               >
-                <ScrambleText duration={200}>{link.label}</ScrambleText>
+                <ScrambleText>{link.label}</ScrambleText>
               </Link>
             ))}
           </nav>
@@ -176,7 +176,7 @@ export function Header() {
             >
               <FileText className="w-3.5 h-3.5" />
               <span>
-                <ScrambleText duration={200}>{nav.resume}</ScrambleText> (PDF)
+                <ScrambleText>{nav.resume}</ScrambleText> (PDF)
               </span>
             </a>
           </div>

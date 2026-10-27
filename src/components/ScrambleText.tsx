@@ -3,76 +3,69 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 
 const GLITCH_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*!?<>{}[]|/\\~^";
+const DEFAULT_BATCH_DURATION = 200;
 
 interface ScrambleTextProps {
   children: string;
-  /** Duration of the scramble effect in ms */
+  /** Duration of the scramble effect in ms (default: 200ms for instantaneous batch) */
   duration?: number;
-  /** Stagger delay — later characters resolve later (ms per char) */
+  /** Stagger is deprecated / ignored to ensure instant single-batch resolution */
   stagger?: number;
   /** Extra className for the wrapper span */
   className?: string;
-  /** Whether the scramble is active (tie to global glitch state) */
+  /** Optional manual trigger */
   scramble?: boolean;
 }
 
 /**
- * Renders text with a character-scramble animation when `children` changes.
- * Each character cycles through random glitch characters before resolving
- * to its final value, with a left-to-right stagger.
+ * Renders text with an instantaneous batch scramble animation when `children` changes.
+ * Rather than resolving phrase-by-phrase or character-by-character, all characters
+ * across all elements scramble simultaneously and resolve together as a single batch.
  */
 export function ScrambleText({
   children,
-  duration = 400,
-  stagger = 12,
+  duration = DEFAULT_BATCH_DURATION,
   className,
-  scramble,
 }: ScrambleTextProps) {
   const [displayText, setDisplayText] = useState(children);
   const prevTextRef = useRef(children);
   const rafRef = useRef<number | null>(null);
   const isFirstRender = useRef(true);
 
-  const runScramble = useCallback(
-    (from: string, to: string) => {
-      const maxLen = Math.max(from.length, to.length);
+  const runBatchScramble = useCallback(
+    (target: string) => {
       const startTime = performance.now();
-      const totalDuration = duration + stagger * maxLen;
+      const targetLen = target.length;
+      // Fixed unified duration for instant batch resolution
+      const batchDuration = duration || DEFAULT_BATCH_DURATION;
 
       const tick = (now: number) => {
         const elapsed = now - startTime;
-        const progress = Math.min(elapsed / totalDuration, 1);
 
+        if (elapsed >= batchDuration) {
+          // Instantly snap to final text as a single batch
+          setDisplayText(target);
+          return;
+        }
+
+        // All characters scramble simultaneously
         let result = "";
-        for (let i = 0; i < maxLen; i++) {
-          // Each char has its own resolve time based on stagger
-          const charResolveTime = duration * 0.3 + stagger * i;
-          const charProgress = Math.min(elapsed / charResolveTime, 1);
-
-          if (charProgress >= 1) {
-            // Character has resolved — show final value
-            result += to[i] ?? "";
-          } else if (to[i] === " " || to[i] === "\n") {
-            // Preserve whitespace
-            result += to[i];
+        for (let i = 0; i < targetLen; i++) {
+          const char = target[i];
+          if (char === " " || char === "\n" || char === "\t" || char === "\r") {
+            result += char;
           } else {
-            // Show random glitch character
             result += GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
           }
         }
 
         setDisplayText(result);
-
-        if (progress < 1) {
-          rafRef.current = requestAnimationFrame(tick);
-        } else {
-          setDisplayText(to);
-        }
+        rafRef.current = requestAnimationFrame(tick);
       };
 
       rafRef.current = requestAnimationFrame(tick);
     },
-    [duration, stagger]
+    [duration]
   );
 
   useEffect(() => {
@@ -84,17 +77,17 @@ export function ScrambleText({
       return;
     }
 
-    // Only animate when text actually changes
+    // When text changes, scramble all characters at once as a single batch
     if (children !== prevTextRef.current) {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      runScramble(prevTextRef.current, children);
+      runBatchScramble(children);
       prevTextRef.current = children;
     }
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [children, runScramble]);
+  }, [children, runBatchScramble]);
 
   return <span className={className}>{displayText}</span>;
 }

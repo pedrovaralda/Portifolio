@@ -65,7 +65,7 @@ export function CopyEmailButton({
           <>
             <Copy className="w-3.5 h-3.5" />
             <span className="font-mono">
-              <ScrambleText duration={200}>{content.contactSection.copyPill}</ScrambleText>
+              <ScrambleText>{content.contactSection.copyPill}</ScrambleText>
             </span>
           </>
         )}
@@ -120,10 +120,10 @@ export function CopyEmailButton({
         <>
           <Mail className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200 transition-colors" />
           <span>
-            <ScrambleText duration={200}>{resolvedLabel}</ScrambleText>
+            <ScrambleText>{resolvedLabel}</ScrambleText>
           </span>
           <span className="text-zinc-500 text-xs font-mono border-l border-zinc-800 pl-2">
-            <ScrambleText duration={200}>{content.hero.copyEmail}</ScrambleText>
+            <ScrambleText>{content.hero.copyEmail}</ScrambleText>
           </span>
         </>
       )}

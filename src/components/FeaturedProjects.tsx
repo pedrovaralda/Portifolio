@@ -17,14 +17,14 @@ export function FeaturedProjects() {
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <FolderGit2 className="w-3.5 h-3.5" />
-            <ScrambleText duration={250}>{projectsSection.badge}</ScrambleText>
+            <ScrambleText>{projectsSection.badge}</ScrambleText>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
-            <ScrambleText duration={400} stagger={8}>{projectsSection.title}</ScrambleText>
+            <ScrambleText>{projectsSection.title}</ScrambleText>
           </h2>
         </div>
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
-          <ScrambleText duration={350} stagger={5}>{projectsSection.subtitle}</ScrambleText>
+          <ScrambleText>{projectsSection.subtitle}</ScrambleText>
         </p>
       </div>
 
@@ -39,35 +39,35 @@ export function FeaturedProjects() {
               {/* Category and Featured Pill */}
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2 py-0.5 rounded bg-zinc-800/80 border border-zinc-750">
-                  <ScrambleText duration={200}>{project.category}</ScrambleText>
+                  <ScrambleText>{project.category}</ScrambleText>
                 </span>
 
                 {project.featured && (
                   <span className="inline-flex items-center gap-1 text-[11px] font-mono text-amber-400/90">
                     <Sparkles className="w-3 h-3" />
-                    <ScrambleText duration={200}>{projectsSection.featuredBadge}</ScrambleText>
+                    <ScrambleText>{projectsSection.featuredBadge}</ScrambleText>
                   </span>
                 )}
               </div>
 
               {/* Title & Tagline */}
               <h3 className="text-xl font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
-                <ScrambleText duration={350} stagger={8}>{project.title}</ScrambleText>
+                <ScrambleText>{project.title}</ScrambleText>
               </h3>
               <p className="mt-1 text-xs font-mono text-zinc-400">
-                <ScrambleText duration={300} stagger={4}>{project.tagline}</ScrambleText>
+                <ScrambleText>{project.tagline}</ScrambleText>
               </p>
 
               {/* Description */}
               <p className="mt-3.5 text-sm text-zinc-400 leading-relaxed">
-                <ScrambleText duration={400} stagger={3}>{project.description}</ScrambleText>
+                <ScrambleText>{project.description}</ScrambleText>
               </p>
 
               {/* Impact / Metric Banner */}
               {project.impactMetric && (
                 <div className="mt-4 p-2.5 rounded-lg border border-zinc-800 bg-zinc-950/60 text-xs font-mono text-zinc-300 flex items-start gap-2">
                   <span className="text-emerald-400 font-bold">⚡</span>
-                  <ScrambleText duration={350} stagger={5}>{project.impactMetric}</ScrambleText>
+                  <ScrambleText>{project.impactMetric}</ScrambleText>
                 </div>
               )}
             </div>
