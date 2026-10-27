@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { portfolioData } from "@/data/portfolio";
 import "./globals.css";
 
@@ -63,6 +64,7 @@ export default function RootLayout({
     <html lang="en" className="dark scroll-smooth">
       <body className="min-h-screen bg-zinc-950 text-zinc-100 antialiased selection:bg-zinc-800 selection:text-zinc-100">
         {children}
+        <Analytics />
       </body>
     </html>
   );
