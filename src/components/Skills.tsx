@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { TechIcons } from "./icons/TechIcons";
 import { SkillItem } from "@/types/portfolio";
 import { ScrambleText } from "./ScrambleText";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function Skills() {
   const { content } = useLanguage();
@@ -32,7 +33,7 @@ export function Skills() {
   return (
     <section id="skills" className="py-16 sm:py-20 border-b border-zinc-850">
       {/* Section Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-2">
+      <ScrollReveal className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-2">
         <div>
           <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
             <Cpu className="w-3.5 h-3.5" />
@@ -45,18 +46,19 @@ export function Skills() {
         <p className="text-xs sm:text-sm font-mono text-zinc-500 max-w-sm">
           <ScrambleText>{skillsSection.subtitle}</ScrambleText>
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Grouped Skills Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-        {categories.map((category) => {
+        {categories.map((category, index) => {
           const groupSkills = skills.filter((s) => s.category === category);
           const MetaIcon = categoryIcons[category];
           const categoryTitle = skillsSection.categories[category];
 
           return (
-            <div
+            <ScrollReveal
               key={category}
+              delay={index * 80}
               className="p-5 sm:p-6 rounded-xl border border-zinc-850 bg-zinc-900/30"
             >
               {/* Category Header */}
@@ -94,7 +96,7 @@ export function Skills() {
                   );
                 })}
               </div>
-            </div>
+            </ScrollReveal>
           );
         })}
       </div>

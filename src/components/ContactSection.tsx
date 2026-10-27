@@ -5,6 +5,7 @@ import { Mail, Github, Linkedin, ArrowUpRight, Clock } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
 import { ScrambleText } from "./ScrambleText";
+import { ScrollReveal } from "./ScrollReveal";
 
 export function ContactSection() {
   const { content } = useLanguage();
@@ -13,7 +14,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-16 sm:py-20">
-      <div className="p-8 sm:p-10 rounded-2xl border border-zinc-850 bg-zinc-900/40 relative overflow-hidden">
+      <ScrollReveal className="p-8 sm:p-10 rounded-2xl border border-zinc-850 bg-zinc-900/40 relative overflow-hidden">
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -77,7 +78,7 @@ export function ContactSection() {
             </a>
           </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

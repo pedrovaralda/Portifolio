@@ -5,6 +5,7 @@ import { Github, Linkedin, MapPin, Clock, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { CopyEmailButton } from "./CopyEmailButton";
 import { ScrambleText } from "./ScrambleText";
+import { ScrollReveal } from "./ScrollReveal";
 
 function renderBioWithLinks(text: string) {
   const parts = text.split(/(@GrupoRiHappy)/g);
@@ -34,8 +35,8 @@ export function Hero() {
 
   return (
     <section className="pt-10 pb-16 sm:pt-16 sm:pb-20 border-b border-zinc-850">
-      {/* Availability Status Badge */}
-      <div className="flex items-center gap-3 mb-6">
+      {/* Availability Status Badge & Meta */}
+      <ScrollReveal delay={0} className="flex items-center gap-3 mb-6">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-zinc-900 border border-zinc-800 text-zinc-300">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -51,20 +52,20 @@ export function Hero() {
           <Clock className="w-3.5 h-3.5 text-zinc-600" />
           <span>{personal.timeZone.split(" ")[0]}</span>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* Main Headline & Intro */}
-      <div className="space-y-4 max-w-3xl">
+      <ScrollReveal delay={100} className="space-y-4 max-w-3xl">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-100 font-sans leading-[1.15]">
           <ScrambleText>{hero.headline}</ScrambleText>
         </h1>
         <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-sans">
           {renderBioWithLinks(personal.shortBio)}
         </p>
-      </div>
+      </ScrollReveal>
 
       {/* Primary CTAs with Accessible Text Labels & Icons */}
-      <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+      <ScrollReveal delay={180} className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
         {/* GitHub Button CTA */}
         <a
           href={socials.github}
@@ -97,13 +98,14 @@ export function Hero() {
 
         {/* Interactive Copy Email CTA */}
         <CopyEmailButton email={personal.email} />
-      </div>
+      </ScrollReveal>
 
       {/* Fast Facts for Recruiters (Quick Assessment Grid) */}
       <div className="mt-12 pt-8 border-t border-zinc-900 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {fastFacts.map((fact) => (
-          <div
+        {fastFacts.map((fact, index) => (
+          <ScrollReveal
             key={fact.label}
+            delay={220 + index * 60}
             className="p-3.5 rounded-lg border border-zinc-900 bg-zinc-950/40 hover:border-zinc-800/80 transition-colors"
           >
             <span className="block text-[11px] font-mono uppercase tracking-wider text-zinc-500">
@@ -112,7 +114,7 @@ export function Hero() {
             <span className="mt-1 block text-sm font-mono font-medium text-zinc-200">
               <ScrambleText>{fact.value}</ScrambleText>
             </span>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>
