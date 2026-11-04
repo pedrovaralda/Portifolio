@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Github, Linkedin, FileText, Menu, X, ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useGame } from "@/context/GameContext";
 import { LanguageToggle } from "./LanguageToggle";
 import { ScrambleText } from "./ScrambleText";
 
@@ -11,6 +12,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { content } = useLanguage();
+  const { toggleGame, isGameMode } = useGame();
   const { nav, data } = content;
   const { personal, socials } = data;
 
@@ -39,30 +41,51 @@ export function Header() {
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand / Name & Status */}
-        <Link
-          href="/"
-          className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-sm"
-        >
-          <div className="flex flex-col">
-            <span className="font-mono text-sm font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
-              {personal.name}
-            </span>
-            <span className="text-[11px] font-mono text-zinc-500">
-              <ScrambleText>{personal.roleTitle}</ScrambleText>
-            </span>
-          </div>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="group flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-sm"
+          >
+            <div className="flex flex-col">
+              <span className="font-mono text-sm font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+                {personal.name}
+              </span>
+              <span className="text-[11px] font-mono text-zinc-500">
+                <ScrambleText>{personal.roleTitle}</ScrambleText>
+              </span>
+            </div>
+          </Link>
+
+          {/* Coding badge — click to launch the retro platformer game */}
           {personal.availability.isOpen && (
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-mono font-medium bg-emerald-950/40 border border-emerald-800/40 text-emerald-400">
+            <button
+              type="button"
+              onClick={toggleGame}
+              title={isGameMode ? "Click to exit game mode" : "Click to launch retro platformer game!"}
+              className={`hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium border transition-all duration-300 cursor-pointer select-none ${
+                isGameMode
+                  ? "bg-yellow-500/20 border-yellow-500/60 text-yellow-300 shadow-[0_0_12px_rgba(234,179,8,0.5)] animate-pulse"
+                  : "bg-emerald-950/40 border-emerald-800/40 text-emerald-400 hover:border-emerald-500 hover:shadow-[0_0_8px_rgba(16,185,129,0.3)]"
+              }`}
+            >
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                <span
+                  className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                    isGameMode ? "bg-yellow-400" : "bg-emerald-400"
+                  }`}
+                />
+                <span
+                  className={`relative inline-flex rounded-full h-1.5 w-1.5 ${
+                    isGameMode ? "bg-yellow-500" : "bg-emerald-500"
+                  }`}
+                />
               </span>
               <span>
-                <ScrambleText>{nav.availableBadge}</ScrambleText>
+                {isGameMode ? "🎮 PLAYING..." : <ScrambleText>{nav.availableBadge}</ScrambleText>}
               </span>
-            </span>
+            </button>
           )}
-        </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1">
@@ -79,7 +102,6 @@ export function Header() {
 
         {/* Action Buttons: Language Toggle, Socials & Resume */}
         <div className="hidden sm:flex items-center gap-2">
-          {/* Language Toggle Button */}
           <LanguageToggle />
 
           <a
@@ -134,6 +156,18 @@ export function Header() {
             <span className="text-xs font-mono text-zinc-500">Idioma / Language:</span>
             <LanguageToggle />
           </div>
+
+          {/* Mobile Game Launch */}
+          <button
+            onClick={() => {
+              setMobileMenuOpen(false);
+              toggleGame();
+            }}
+            className="w-full py-2 px-3 rounded-md bg-yellow-500/10 border border-yellow-500/40 text-yellow-300 text-xs font-mono font-medium flex items-center justify-center gap-2"
+          >
+            <span>🎮</span>
+            <span>{isGameMode ? "Sair do Jogo / Exit Game" : "Jogar Modo Arcade / Play Game"}</span>
+          </button>
 
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
