@@ -27,7 +27,7 @@ export function Footer() {
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-zinc-300 transition-colors"
+            className="px-2 py-1 rounded text-zinc-400 hover:text-black transition-all duration-150 hover-invert"
           >
             GitHub
           </a>
@@ -35,19 +35,19 @@ export function Footer() {
             href={socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-zinc-300 transition-colors"
+            className="px-2 py-1 rounded text-zinc-400 hover:text-black transition-all duration-150 hover-invert"
           >
             LinkedIn
           </a>
           <Link
             href="#"
-            className="inline-flex items-center gap-1 hover:text-zinc-300 transition-colors pl-2 border-l border-zinc-850"
+            className="group inline-flex items-center gap-1 px-2 py-1 rounded text-zinc-400 hover:text-black transition-all duration-150 hover-invert pl-2 border-l border-zinc-850"
             aria-label={footer.backToTop}
           >
             <span>
               <ScrambleText>{footer.backToTop}</ScrambleText>
             </span>
-            <ArrowUp className="w-3 h-3" />
+            <ArrowUp className="w-3 h-3 group-hover:text-black transition-colors" />
           </Link>
         </div>
       </div>

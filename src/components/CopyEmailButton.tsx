@@ -79,7 +79,7 @@ export function CopyEmailButton({
         onClick={handleCopy}
         aria-label={copied ? resolvedCopied : "Copy email address"}
         className={cn(
-          "inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800 bg-zinc-900/60 hover:bg-zinc-850 hover:border-zinc-700 text-xs font-mono text-zinc-300 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400",
+          "group inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-zinc-800 bg-zinc-900/60 text-xs font-mono text-zinc-300 transition-all duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-400 hover-invert",
           copied && "border-emerald-500/40 bg-emerald-950/20 text-emerald-300",
           className
         )}
@@ -91,7 +91,7 @@ export function CopyEmailButton({
           </>
         ) : (
           <>
-            <Copy className="w-3.5 h-3.5 text-zinc-400" />
+            <Copy className="w-3.5 h-3.5 text-zinc-400 group-hover:text-black transition-colors" />
             <span>{email}</span>
           </>
         )}
@@ -104,7 +104,7 @@ export function CopyEmailButton({
       onClick={handleCopy}
       aria-label={copied ? resolvedCopied : "Copy email to clipboard"}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/80 hover:bg-zinc-850 hover:border-zinc-700 text-sm font-medium text-zinc-200 shadow-sm transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950",
+        "group relative inline-flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/80 text-sm font-medium text-zinc-200 shadow-sm transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 hover-invert",
         copied && "border-emerald-500/50 bg-emerald-950/20 text-emerald-300",
         className
       )}
@@ -118,11 +118,11 @@ export function CopyEmailButton({
         </>
       ) : (
         <>
-          <Mail className="w-4 h-4 text-zinc-400 group-hover:text-zinc-200 transition-colors" />
+          <Mail className="w-4 h-4 text-zinc-400 group-hover:text-black transition-colors" />
           <span>
             <ScrambleText>{resolvedLabel}</ScrambleText>
           </span>
-          <span className="text-zinc-500 text-xs font-mono border-l border-zinc-800 pl-2">
+          <span className="text-zinc-500 group-hover:text-zinc-800 text-xs font-mono border-l border-zinc-800 group-hover:border-zinc-300 pl-2 transition-colors">
             <ScrambleText>{content.hero.copyEmail}</ScrambleText>
           </span>
         </>

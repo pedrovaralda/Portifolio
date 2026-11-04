@@ -37,7 +37,7 @@ export function Hero() {
     <section className="pt-10 pb-16 sm:pt-16 sm:pb-20 border-b border-zinc-850">
       {/* Availability Status Badge & Meta */}
       <ScrollReveal delay={0} className="flex items-center gap-3 mb-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-zinc-900 border border-zinc-800 text-zinc-300">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-zinc-900 border border-zinc-800 text-zinc-300 transition-all duration-150 hover-invert cursor-default">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -71,13 +71,13 @@ export function Hero() {
           href={socials.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          className="group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 hover-invert"
         >
-          <Github className="w-4 h-4 text-zinc-300" />
+          <Github className="w-4 h-4 text-zinc-300 group-hover:text-black transition-colors" />
           <span>
             <ScrambleText>{hero.githubLabel}</ScrambleText>
           </span>
-          <span className="text-xs font-mono text-zinc-500">@pedrovaralda</span>
+          <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-800 transition-colors">@pedrovaralda</span>
         </a>
 
         {/* LinkedIn Button CTA */}
@@ -85,13 +85,13 @@ export function Hero() {
           href={socials.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+          className="group inline-flex items-center gap-2.5 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 text-sm font-medium text-zinc-100 transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 hover-invert"
         >
-          <Linkedin className="w-4 h-4 text-[#0a66c2]" />
+          <Linkedin className="w-4 h-4 text-[#0a66c2] group-hover:text-black transition-colors" />
           <span>
             <ScrambleText>{hero.linkedinLabel}</ScrambleText>
           </span>
-          <span className="text-xs font-mono text-zinc-500">
+          <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-800 transition-colors">
             <ScrambleText>{hero.connectLabel}</ScrambleText>
           </span>
         </a>
@@ -106,12 +106,12 @@ export function Hero() {
           <ScrollReveal
             key={fact.label}
             delay={220 + index * 60}
-            className="p-3.5 rounded-lg border border-zinc-900 bg-zinc-950/40 hover:border-zinc-800/80 transition-colors"
+            className="group p-3.5 rounded-lg border border-zinc-900 bg-zinc-950/40 transition-all duration-150 hover-invert cursor-default"
           >
-            <span className="block text-[11px] font-mono uppercase tracking-wider text-zinc-500">
+            <span className="block text-[11px] font-mono uppercase tracking-wider text-zinc-500 group-hover:text-zinc-700 transition-colors">
               <ScrambleText>{fact.label}</ScrambleText>
             </span>
-            <span className="mt-1 block text-sm font-mono font-medium text-zinc-200">
+            <span className="mt-1 block text-sm font-mono font-medium text-zinc-200 group-hover:text-black transition-colors">
               <ScrambleText>{fact.value}</ScrambleText>
             </span>
           </ScrollReveal>

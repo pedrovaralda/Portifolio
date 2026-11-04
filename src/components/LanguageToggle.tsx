@@ -20,7 +20,7 @@ export function LanguageToggle({ className, variant = "pill" }: LanguageTogglePr
         title={locale === "pt" ? "Switch to English (US)" : "Mudar para Português (Brasil)"}
         aria-label={locale === "pt" ? "Switch to English" : "Mudar para Português"}
         className={cn(
-          "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-zinc-800 bg-zinc-900/80 hover:bg-zinc-850 hover:border-zinc-700 text-xs font-mono text-zinc-300 transition-all duration-150 active:scale-[0.97]",
+          "inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border border-zinc-800 bg-zinc-900/80 text-xs font-mono text-zinc-300 transition-all duration-150 active:scale-[0.97] hover-invert group",
           className
         )}
       >
@@ -49,10 +49,10 @@ export function LanguageToggle({ className, variant = "pill" }: LanguageTogglePr
         aria-pressed={locale === "pt"}
         title="Português (Brasil)"
         className={cn(
-          "px-2 py-1 rounded-md transition-all duration-150 font-medium",
+          "px-2 py-1 rounded-md transition-all duration-150 font-medium hover-invert",
           locale === "pt"
             ? "bg-zinc-800 text-zinc-100 shadow-sm border border-zinc-700/60 font-semibold"
-            : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850/50"
+            : "text-zinc-400"
         )}
       >
         PT-BR
@@ -66,10 +66,10 @@ export function LanguageToggle({ className, variant = "pill" }: LanguageTogglePr
         aria-pressed={locale === "en"}
         title="English (US)"
         className={cn(
-          "px-2 py-1 rounded-md transition-all duration-150 font-medium",
+          "px-2 py-1 rounded-md transition-all duration-150 font-medium hover-invert",
           locale === "en"
             ? "bg-zinc-800 text-zinc-100 shadow-sm border border-zinc-700/60 font-semibold"
-            : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-850/50"
+            : "text-zinc-400"
         )}
       >
         EN

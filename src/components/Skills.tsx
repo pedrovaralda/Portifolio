@@ -77,10 +77,10 @@ export function Skills() {
                   return (
                     <div
                       key={skill.name}
-                      className="group relative flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-850 bg-zinc-900/60 hover:bg-zinc-850 hover:border-zinc-700 transition-all duration-150 cursor-default"
+                      className="group relative flex items-center gap-2.5 p-2.5 rounded-lg border border-zinc-850 bg-zinc-900/60 transition-all duration-150 hover-invert cursor-default shadow-sm"
                     >
                       {/* Icon */}
-                      <div className="w-5 h-5 shrink-0 flex items-center justify-center text-zinc-400 group-hover:text-zinc-100 transition-colors">
+                      <div className="w-5 h-5 shrink-0 flex items-center justify-center text-zinc-400 group-hover:text-black transition-colors">
                         {IconComponent ? (
                           <IconComponent className="w-4 h-4" />
                         ) : (
@@ -89,7 +89,7 @@ export function Skills() {
                       </div>
 
                       {/* Name */}
-                      <span className="text-xs font-mono font-medium text-zinc-300 group-hover:text-white transition-colors truncate">
+                      <span className="text-xs font-mono font-medium text-zinc-300 group-hover:text-black transition-colors truncate">
                         {skill.name}
                       </span>
                     </div>

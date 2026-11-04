@@ -70,7 +70,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-3 py-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md transition-colors"
+              className="px-3 py-1.5 text-xs font-mono text-zinc-400 hover:text-black rounded-md transition-all duration-150 hover-invert"
             >
               <ScrambleText>{link.label}</ScrambleText>
             </Link>
@@ -87,7 +87,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="p-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md border border-transparent hover:border-zinc-800 transition-colors"
+            className="group p-2 text-zinc-400 hover:text-black rounded-md border border-transparent transition-all duration-150 hover-invert"
           >
             <Github className="w-4 h-4" />
           </a>
@@ -96,7 +96,7 @@ export function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="p-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md border border-transparent hover:border-zinc-800 transition-colors"
+            className="group p-2 text-zinc-400 hover:text-black rounded-md border border-transparent transition-all duration-150 hover-invert"
           >
             <Linkedin className="w-4 h-4" />
           </a>
@@ -104,7 +104,7 @@ export function Header() {
             href={personal.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-zinc-200 transition-all duration-150"
+            className="group inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200 transition-all duration-150 hover-invert"
           >
             <FileText className="w-3.5 h-3.5 text-zinc-400" />
             <span>
@@ -120,7 +120,7 @@ export function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900 rounded-md"
+            className="p-2 text-zinc-400 hover:text-black rounded-md transition-all duration-150 hover-invert"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -141,7 +141,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm font-mono text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-md"
+                className="px-3 py-2 text-sm font-mono text-zinc-300 hover:text-black rounded-md transition-all duration-150 hover-invert"
               >
                 <ScrambleText>{link.label}</ScrambleText>
               </Link>
@@ -153,7 +153,7 @@ export function Header() {
                 href={socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white"
+                className="p-2 text-zinc-400 hover:text-black rounded-md transition-all duration-150 hover-invert"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
@@ -162,7 +162,7 @@ export function Header() {
                 href={socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-zinc-400 hover:text-white"
+                className="p-2 text-zinc-400 hover:text-black rounded-md transition-all duration-150 hover-invert"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -172,7 +172,7 @@ export function Header() {
               href={personal.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200"
+              className="group inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200 transition-all duration-150 hover-invert"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>

@@ -74,7 +74,7 @@ export const enContent: PortfolioContent = {
         isOpen: true,
       },
       email: "phvaralda@gmail.com",
-      resumeUrl: "/resume.pdf",
+      resumeUrl: "/resumeEnglish.pdf",
     },
     fastFacts: [
       { label: "Experience", value: "5+ Years" },

@@ -149,3 +149,43 @@ body {
     transform: translateX(0);
   }
 }
+
+/* ═══════════════════════════════════════════════════════
+   Hover Invert: Upward slide animation
+   White background slides up from bottom to top on hover
+   ═══════════════════════════════════════════════════════ */
+.hover-invert,
+.keyword-badge {
+  background-image: linear-gradient(to top, #ffffff, #ffffff) !important;
+  background-size: 100% 0% !important;
+  background-position: bottom !important;
+  background-repeat: no-repeat !important;
+  transition: background-size 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 200ms ease,
+              border-color 200ms ease,
+              box-shadow 200ms ease !important;
+}
+
+.hover-invert:hover,
+.keyword-badge:hover {
+  background-size: 100% 100% !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+}
+
+.hover-invert:hover *,
+.keyword-badge:hover * {
+  color: #000000 !important;
+}
+
+.hover-invert:hover svg,
+.keyword-badge:hover svg {
+  stroke: #000000 !important;
+  color: #000000 !important;
+}
+
+.hover-invert:hover span,
+.hover-invert:hover div {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+

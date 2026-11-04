@@ -40,9 +40,9 @@ export function ContactSection() {
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={`mailto:${personal.email}`}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 font-medium text-sm transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400"
+              className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900 text-zinc-100 font-medium text-sm transition-all duration-150 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 hover-invert"
             >
-              <Mail className="w-4 h-4 text-zinc-950" />
+              <Mail className="w-4 h-4 text-zinc-300 group-hover:text-black transition-colors" />
               <span>
                 <ScrambleText>{contactSection.sendEmail}</ScrambleText>
               </span>
@@ -59,22 +59,22 @@ export function ContactSection() {
               href={socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-xs font-mono text-zinc-300 transition-colors"
+              className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900 text-xs font-mono text-zinc-300 transition-all duration-150 hover-invert"
             >
-              <Linkedin className="w-3.5 h-3.5 text-[#0a66c2]" />
+              <Linkedin className="w-3.5 h-3.5 text-[#0a66c2] group-hover:text-black transition-colors" />
               <span>LinkedIn</span>
-              <ArrowUpRight className="w-3 h-3 text-zinc-500" />
+              <ArrowUpRight className="w-3 h-3 text-zinc-500 group-hover:text-black transition-colors" />
             </a>
 
             <a
               href={socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900 hover:bg-zinc-850 hover:border-zinc-700 text-xs font-mono text-zinc-300 transition-colors"
+              className="group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900 text-xs font-mono text-zinc-300 transition-all duration-150 hover-invert"
             >
-              <Github className="w-3.5 h-3.5" />
+              <Github className="w-3.5 h-3.5 text-zinc-400 group-hover:text-black transition-colors" />
               <span>GitHub</span>
-              <ArrowUpRight className="w-3 h-3 text-zinc-500" />
+              <ArrowUpRight className="w-3 h-3 text-zinc-500 group-hover:text-black transition-colors" />
             </a>
           </div>
         </div>

@@ -37,7 +37,7 @@ export function FeaturedProjects() {
               <div>
                 {/* Category and Featured Pill */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2 py-0.5 rounded bg-zinc-800/80 border border-zinc-750">
+                  <span className="keyword-badge text-[11px] font-mono uppercase tracking-wider text-zinc-400 px-2 py-0.5 rounded bg-zinc-800/80 border border-zinc-750 transition-all duration-150 hover-invert cursor-default">
                     <ScrambleText>{project.category}</ScrambleText>
                   </span>
 
@@ -77,7 +77,7 @@ export function FeaturedProjects() {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-zinc-850 text-zinc-300 border border-zinc-750"
+                      className="keyword-badge text-[11px] font-mono px-2 py-0.5 rounded-md bg-zinc-850 text-zinc-300 border border-zinc-750 transition-all duration-150 hover-invert cursor-default select-none"
                     >
                       {tech}
                     </span>

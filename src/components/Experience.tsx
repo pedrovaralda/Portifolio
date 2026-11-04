@@ -79,7 +79,7 @@ export function Experience() {
               {item.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-400"
+                  className="keyword-badge text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-400 transition-all duration-150 hover-invert cursor-default select-none"
                 >
                   {tech}
                 </span>
